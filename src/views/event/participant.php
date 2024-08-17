@@ -36,7 +36,7 @@ if ($isParticipantSession) {
         <div class="col-xx-6 col-xl-6 col-lg-6 col-md-8 col-sm-12 col-xs-12 col-12 py-3">
 
             <p class="fw-bold fs-5 text-blue text-uppercase">Please fill valid information in all the required fields below.</p>
-            <div class="alert alert-danger fw-bold text-red">The information you provide below is required for verification of your event registration.</div>
+            <div class="alert alert-danger fw-bold text-red"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;The information you provide below is required for verification of your event registration.</div>
 
             <div class="card shadow-sm">
                 <div class="card-body">
@@ -77,16 +77,16 @@ if ($isParticipantSession) {
                                         if (!empty($eventParticipantPhoneCountry)):
                                     ?>
                                             <option value="<?php echo $phcode["pc_code"] . '_' . $phcode['pc_namecode']; ?>" <?php if ($phcode["pc_namecode"] == $eventParticipantPhoneCountry) {
-                                                                                                                                echo "selected";
-                                                                                                                            } else {
-                                                                                                                            } ?>><?php echo $phcode["pc_name"]; ?></option>
+                                                                                                                                    echo "selected";
+                                                                                                                                } else {
+                                                                                                                                } ?>><?php echo $phcode["pc_name"]; ?></option>
                                         <?php
                                         else:
                                         ?>
                                             <option value="<?php echo $phcode["pc_code"] . '_' . $phcode['pc_namecode']; ?>" <?php if ($phcode["pc_namecode"] == "US") {
-                                                                                                                                echo "selected";
-                                                                                                                            } else {
-                                                                                                                            } ?>><?php echo $phcode["pc_name"]; ?></option>
+                                                                                                                                    echo "selected";
+                                                                                                                                } else {
+                                                                                                                                } ?>><?php echo $phcode["pc_name"]; ?></option>
                                     <?php
                                         endif;
                                     endforeach;

@@ -106,8 +106,8 @@ $aboutJSONEnc = json_decode($aboutJSONFile, true);
                                     </li>
                                     <li class="nav-item mx-lg-2">
                                         <div class="d-flex gap-2 justify-content-center">
-                                            <a type="button" href="event/view/FFE75100" class="btn btn-warning text-uppercase text-gray fw-bold me-md-2">Buy Now&nbsp;<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
-                                            <a type="button" href="event/checklist" class="btn btn-red text-uppercase text-white fw-bold me-md-2"><i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp;Your Cart</a>
+                                            <a type="button" href="event/view/FFE75100" class="btn btn-warning text-uppercase text-gray fw-bold me-md-2">Buy Now&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                            <a type="button" href="event/checklist" class="btn btn-red text-uppercase text-white fw-bold me-md-2"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Cart</a>
                                         </div>
                                     </li>
                                     <li class="nav-item d-md-none">
