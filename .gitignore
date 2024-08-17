@@ -1,0 +1,42 @@
+# PHP - ignore core, configuration, examples, uploads and logs.
+
+# htaccess
+/.htaccess
+src/.htaccess
+
+#env
+/.env
+
+
+# OS generated files
+ehthumbs.db
+Thumbs.db
+
+# Log files and databases
+*.log
+*.sql
+*.sqlite
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# All manual backup files
+backup/
+
+# All manual backup databases
+database/

@@ -1,0 +1,56 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./config/php/Dockerfile
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - freedomfunusa
+  web:
+    build:
+      context: .
+      dockerfile: ./config/nginx/Dockerfile
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "8080:80"
+    depends_on:
+      - app
+      - db
+    restart: unless-stopped
+    networks:
+      - freedomfunusa
+  db:
+    image: mysql:latest
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    networks:
+      - freedomfunusa
+  pma:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=db
+      - PMA_ARBITRARY=1
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    restart: unless-stopped
+    networks:
+      - freedomfunusa
+volumes:
+  mysql_data:
+networks:
+  freedomfunusa:

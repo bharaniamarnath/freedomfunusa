@@ -1,0 +1,75 @@
+{
+    "Facilitator": {
+        "title": "Freedom Fun USA",
+        "phone": "855-386-4255",
+        "email": "info@freedomfunusa.com",
+        "website": "https:\/\/freedomfunusa.com\/",
+        "websiteText": "freedomfunusa.com",
+        "copyrights": "&copy; 2021 Freedom Fun USA&reg; All Rights Reserved.",
+        "socialmedia": {
+            "facebook": "https:\/\/www.facebook.com\/Freedom Fun\/",
+            "twitter": "https:\/\/www.twitter.com\/Freedom Fun\/",
+            "instagram": "https:\/\/www.instagram.com\/Freedom Fun\/",
+            "youtube": "https:\/\/www.youtube.com\/channel\/UCSLvik3ji5OEC7-_KTFJ07A"
+        }
+    },
+    "Sponsor": {
+        "title": "TI Social LLC",
+        "phone": "972-521-1459",
+        "website": "https:\/\/www.tisocial.com\/",
+        "websiteText": "tisocial.com",
+        "email": "info@tisocial.com",
+        "copyrights": "&copy; Copyright TI Social LLC  | All Rights Reserved.",
+        "socialmedia": {
+            "facebook": "https:\/\/www.facebook.com\/TISocialBiz",
+            "twitter": "https:\/\/www.twitter.com\/TISocial",
+            "instagram": "https:\/\/www.instagram.com\/TISocial",
+            "youtube": "https:\/\/www.youtube.com\/TISocial"
+        }
+    },
+    "Organisation": {
+        "title": "Leander Old Town Festival",
+        "phone": "512-259-1907",
+        "email": "visit@leandercc.org",
+        "website": "https:\/\/visitleandertx.com\/leander-attractions-and-activities\/leander-festivals\/old-town-christmas-festival\/",
+        "websiteText": "visitleandertx.com",
+        "copyrights": "&copy; 2023 Old Town Christmas Festival. All Rights Reserved.",
+        "socialmedia": {
+            "facebook": "https:\/\/www.facebook.com\/events\/413210107528576\/",
+            "twitter": "https:\/\/twitter.com\/oldtownchristmasfestival",
+            "instagram": "https:\/\/www.instagram.com\/oldtownchristmasfestival\/",
+            "youtube": "https:\/\/www.youtube.com\/results?search_query=leander+old+town+christmas+festival",
+            "pinterest": null
+        }
+    },
+    "EventYear": "2023",
+    "EventVenue": "100 N. Brushy St. Leander",
+    "EventDate": [
+        "02-12-2023"
+    ],
+    "EventTime": [
+        "11:00:00",
+        "21:00:00"
+    ],
+    "EventEmail": [
+        "comiccon@tisocial.com",
+        "visit@leandercc.org",
+        "bamar@tisocial.com"
+    ],
+    "EventTags": [
+        "OTCF2023",
+        "leander",
+        "oldtown",
+        "christmas",
+        "festival"
+    ],
+    "EventCopyrights": "Freedom Fun USA. Old Town Christmas Festival 2023. All Rights Reserved.",
+    "EventSiteTitle": "Freedom Fun USA | Old Town Christmas Festival 2023",
+    "EventSiteKeywords": "Freedom Fun USA, Old Town Christmas Festival, 2023",
+    "EventSiteDescription": "Freedom Fun USA. Old Town Christmas Festival 2023.",
+    "EventHeading": "Old Town Christmas Festival 2023",
+    "EventTagline": "Interactive Playzone with Wristbands",
+    "EventVerbiage": "Jingle all the way to Old Town!",
+    "EmailEventDate": "December 2nd, 2023",
+    "EmailEventTime": "11AM to 9PM"
+}
