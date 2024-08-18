@@ -40,30 +40,49 @@ include_once(__DIR__ . '/../templates/header_admin.php');
 
     <div class="row">
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 col-12 py-3">
-            <div class="card shadow-sm">
-                <div class="row g-0 p-1">
 
-                    <div class="col-2">
+            <div class="list-group">
+
+                <a href="#" class="list-group-item list-group-item-action disabled" aria-current="true" aria-disabled="true">
+                    <div class="d-flex w-100 justify-content-between img-dashboard py-3">
                         <?php if (is_file("public/assets/images/admin/" . $adminInfo['ffa_image'])) : ?>
                             <img src="public/assets/images/admin/<?php echo $adminInfo['ffa_image']; ?>" class="img-fluid" alt="<?php echo $adminInfo['ffa_name']; ?>">
                         <?php else: ?>
                             <img src="public/assets/images/misc/ff_placeholder.png" class="img-fluid" alt="<?php echo $adminInfo['ffa_name']; ?>">
                         <?php endif ?>
                     </div>
-
-                    <div class="col-10">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="text-red fw-bold"><?php echo $adminInfo['ffa_name']; ?></h5>
-                            <p class="small text-blue">Last logged in at <?php echo date('F jS, Y h:i A', strtotime($adminInfo['ffa_last_login'])); ?></p>
-                        </div>
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="fw-bold text-red mb-1"><?php echo $adminInfo['ffa_name']; ?></h5>
                     </div>
-                </div>
+                    <small class="text-muted">Last logged in at <?php echo date('F jS, Y h:i A', strtotime($adminInfo['ffa_last_login'])); ?></small>
+                </a>
 
-                <div class="card-footer bg-white d-grid justify-content-end border-0">
-                    <a href="admin/logout" class="btn btn-red btn-sm"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;Logout</a>
-                </div>
-
+                <a href="admin/dashboard" class="list-group-item list-group-item-action text-blue" aria-current="true">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>&nbsp;Dashboard
+                </a>
+                <a href="admin/event/order/list" class="list-group-item list-group-item-action text-blue">
+                    <i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;Orders
+                </a>
+                <a href="admin/event/list" class="list-group-item list-group-item-action text-blue">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Events
+                </a>
+                <a href="admin/category/list" class="list-group-item list-group-item-action text-blue">
+                    <i class="fa fa-th-large" aria-hidden="true"></i>&nbsp;Categories
+                </a>
+                <a href="admin/statistics" class="list-group-item list-group-item-action text-blue">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;Statistics
+                </a>
+                <a href="admin/config/about" class="list-group-item list-group-item-action text-blue">
+                    <i class="fa fa-cog" aria-hidden="true"></i>&nbsp;Settings
+                </a>
+                <a href="admin/administrator/list" class="list-group-item list-group-item-action text-blue">
+                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;Profile
+                </a>
+                <a href="admin/logout" class="list-group-item list-group-item-action text-blue">
+                    <i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;Logout
+                </a>
             </div>
+
         </div>
 
 
@@ -76,6 +95,41 @@ include_once(__DIR__ . '/../templates/header_admin.php');
             <div class="row">
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 py-3">
                     <h2 class="text-red fw-bold">Overview</h2>
+                </div>
+            </div>
+
+
+            <?php
+            $statisticsModel = new StatisticsModel();
+            $totalAmountByDate = $statisticsModel->getTotalAmountByOrderDate();
+            if (is_null($totalAmountByDate) || empty($totalAmountByDate)) {
+                echo "No records found";
+            } else {
+                $totalAmountByDateChart = [];
+                foreach ($totalAmountByDate as $totalAmountByDateItem) {
+                    array_push($totalAmountByDateChart, array('y' => $totalAmountByDateItem['ffeo_total_amt_date'], 'label' => $totalAmountByDateItem['ffeo_order_date_only']));
+                }
+            }
+            ?>
+
+            <div class="row">
+
+                <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <p class="card-text my-0">
+                            <div id="totalAmountByDateChart" style="height: 360px; width: 100%;"></div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 py-3 mt-3">
+                    <h4 class="text-blue fw-bold">By Orders</h4>
                 </div>
             </div>
 
@@ -156,11 +210,11 @@ include_once(__DIR__ . '/../templates/header_admin.php');
 
 
 
-            <!-- By Game Category -->
+            <!-- By Game Type -->
 
             <div class="row">
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 py-3 mt-3">
-                    <h4 class="text-red fw-bold">By Event Game Category</h4>
+                    <h4 class="text-red fw-bold">By Game Type</h4>
                 </div>
             </div>
 
@@ -212,7 +266,7 @@ include_once(__DIR__ . '/../templates/header_admin.php');
 
             <div class="row">
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 pt-5 pb-3 mt-3 border-top">
-                    <h2 class="text-blue fw-bold">Recent Event Orders</h2>
+                    <h2 class="text-blue fw-bold">Recent Orders</h2>
                 </div>
             </div>
             <div class="row">
@@ -267,6 +321,29 @@ include_once(__DIR__ . '/../templates/header_admin.php');
         </div>
     </div>
 </div>
+
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+<script>
+    window.onload = function() {
+
+        var chart = new CanvasJS.Chart("totalAmountByDateChart", {
+            title: {
+                text: "Total order amount by last 5 dates",
+                fontSize: 16,
+                fontColor: "#03668d"
+            },
+            axisY: {
+                title: "Order Amount"
+            },
+            data: [{
+                type: "line",
+                dataPoints: <?php echo json_encode(array_reverse($totalAmountByDateChart), JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        chart.render();
+
+    }
+</script>
 
 <?php
 include_once(__DIR__ . "/../templates/footer.php");

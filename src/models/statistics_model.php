@@ -82,7 +82,7 @@ GROUP BY fpg.ffpg_event_game');
         }
     }
 
-    public function getTotalAmountByOrderDate()
+    public function getTotalOrdersByOrderDate()
     {
         try {
             $db = $this->database->openConnection();
@@ -94,6 +94,27 @@ GROUP BY order_date');
             if ($stmt->execute()) {
                 $count = $stmt->fetchAll();
                 return $count;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $this->database->closeConnection();
+        }
+    }
+
+    public function getTotalAmountByOrderDate()
+    {
+        try {
+            $db = $this->database->openConnection();
+            $stmt = $db->prepare('SELECT SUM(ffeo_total_amt) as ffeo_total_amt_date, DATE(ffeo_order_date) as ffeo_order_date_only
+FROM ff_event_orders 
+GROUP BY DATE(ffeo_order_date) 
+ORDER BY DATE(ffeo_order_date) DESC LIMIT 5');
+            if ($stmt->execute()) {
+                $result = $stmt->fetchAll();
+                return $result;
             } else {
                 return false;
             }

@@ -292,6 +292,12 @@ hr {
     height: auto;
 }
 
+.img-dashboard .img-fluid {
+    max-width: 64px !important;
+    height: auto;
+}
+
+
 .modal-header-logo {
     background-color: #ffffff;
     box-sizing: border-box;
@@ -488,6 +494,12 @@ label.required-field::after {
 .nav-tabs>.nav-item>.nav-link.active {
     color: #c53637;
     font-weight: bold;
+}
+
+/* Chart */
+
+.canvasjs-chart-credit {
+    display: none !important;
 }
 
 /* Media Queries */
