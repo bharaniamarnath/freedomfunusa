@@ -2337,6 +2337,34 @@ $(document).ready(function () {
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+// Canvas JS
+
+$(document).ready(function () {
+    totalAmountByDateChart(totalAmountByDateChartData);
+});
+
+function totalAmountByDateChart(totalAmountByDateChartData) {
+
+    var chart = new CanvasJS.Chart("totalAmountByDateChart", {
+        title: {
+            text: "Total order amount by last 5 dates",
+            fontSize: 16,
+            fontColor: "#03668d",
+            fontFamily: "Poppins",
+        },
+        axisY: {
+            title: "Order Amount"
+        },
+        data: [{
+            type: "line",
+            lineColor: "#c53637",
+            indexLabelFontFamily: "Poppins",
+            dataPoints: totalAmountByDateChartData
+        }]
+    });
+    chart.render();
+
+}
 
 // Page Loader
 

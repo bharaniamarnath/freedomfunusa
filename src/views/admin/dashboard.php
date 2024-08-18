@@ -129,7 +129,7 @@ include_once(__DIR__ . '/../templates/header_admin.php');
 
             <div class="row">
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 py-3 mt-3">
-                    <h4 class="text-blue fw-bold">By Orders</h4>
+                    <h4 class="text-red fw-bold">By Orders</h4>
                 </div>
             </div>
 
@@ -324,25 +324,7 @@ include_once(__DIR__ . '/../templates/header_admin.php');
 
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 <script>
-    window.onload = function() {
-
-        var chart = new CanvasJS.Chart("totalAmountByDateChart", {
-            title: {
-                text: "Total order amount by last 5 dates",
-                fontSize: 16,
-                fontColor: "#03668d"
-            },
-            axisY: {
-                title: "Order Amount"
-            },
-            data: [{
-                type: "line",
-                dataPoints: <?php echo json_encode(array_reverse($totalAmountByDateChart), JSON_NUMERIC_CHECK); ?>
-            }]
-        });
-        chart.render();
-
-    }
+    var totalAmountByDateChartData = <?php echo json_encode(array_reverse($totalAmountByDateChart), JSON_NUMERIC_CHECK); ?>;
 </script>
 
 <?php
