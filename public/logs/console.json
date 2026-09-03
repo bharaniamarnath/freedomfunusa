@@ -1,0 +1,50 @@
+[
+    {
+        "log_date": "2026-08-10 01:11:41",
+        "log_msg": "Error in database connection: SQLSTATE[HY000]: General error: 1364 Field 'ffec_image' doesn't have a default value"
+    },
+    {
+        "log_date": "2026-08-10 01:12:46",
+        "log_msg": "Error in database connection: SQLSTATE[HY000]: General error: 1364 Field 'ffec_image' doesn't have a default value"
+    },
+    {
+        "log_date": "2026-08-10 01:30:08",
+        "log_msg": "Error in database connection: SQLSTATE[HY000]: General error: 1364 Field 'ffg_image' doesn't have a default value"
+    },
+    {
+        "log_date": "2026-08-24 03:41:46",
+        "log_msg": "Error in database connection: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ffep_order_id' in 'field list'"
+    },
+    {
+        "log_date": "2026-08-24 03:44:52",
+        "log_msg": "Error in database connection: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ffep_order_id' in 'field list'"
+    },
+    {
+        "log_date": "2026-08-24 03:45:30",
+        "log_msg": "Error in database connection: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ffep_order_id' in 'field list'"
+    },
+    {
+        "log_date": "2026-08-24 03:48:03",
+        "log_msg": "Error in database connection: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ffep_order_id' in 'field list'"
+    },
+    {
+        "log_date": "2026-08-24 03:54:02",
+        "log_msg": "Error in database connection: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ffep_order_id' in 'field list'"
+    },
+    {
+        "log_date": "2026-08-24 04:00:11",
+        "log_msg": "Error in database connection: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ffep_order_id' in 'field list'"
+    },
+    {
+        "log_date": "2026-08-24 04:04:07",
+        "log_msg": "Error in database connection: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ffep_order_id' in 'field list'"
+    },
+    {
+        "log_date": "2026-08-24 04:12:23",
+        "log_msg": "Error in database connection: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens"
+    },
+    {
+        "log_date": "2026-08-24 04:12:43",
+        "log_msg": "Error in database connection: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens"
+    }
+]
