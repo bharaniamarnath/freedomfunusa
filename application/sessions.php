@@ -30,8 +30,8 @@ return false;
 
 //Check Participant Information Session Status
 
-function isParticipantSession(){
-if(isset($_SESSION['bccc_event_participant']) && !empty($_SESSION['bccc_event_participant']) && $_SESSION['bccc_event_participant'] !== null && is_array($_SESSION['bccc_event_participant'])){
+function participantSession(){
+if(isset($_SESSION['bccc_participant']) && !empty($_SESSION['bccc_participant']) && $_SESSION['bccc_participant'] !== null && is_array($_SESSION['bccc_participant'])){
 return true;
 }
 else{

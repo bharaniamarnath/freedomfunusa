@@ -51,11 +51,11 @@ $event_participant = array(
 "eventParticipantZip" => $eventParticipantZip
 );
 
-if(!isset($_SESSION['bccc_event_participant'])){
-$_SESSION['bccc_event_participant'] = array();
+if(!isset($_SESSION['bccc_participant'])){
+$_SESSION['bccc_participant'] = array();
 }
 
-$_SESSION['bccc_event_participant'] = $event_participant;
+$_SESSION['bccc_participant'] = $event_participant;
 
 $res = array("err" => 0, "msg" => "Participant information processed", "redir"=> "/" . basename(dirname(__FILE__, 3)) . "/admin/signup/checkout");
 echo json_encode($res);

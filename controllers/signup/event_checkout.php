@@ -52,11 +52,11 @@ $event_participant = array(
 "eventParticipantZip" => $eventParticipantZip
 );
 
-if(!isset($_SESSION['bccc_event_participant'])){
-$_SESSION['bccc_event_participant'] = array();
+if(!isset($_SESSION['bccc_participant'])){
+$_SESSION['bccc_participant'] = array();
 }
 
-$_SESSION['bccc_event_participant'] = $event_participant;
+$_SESSION['bccc_participant'] = $event_participant;
 }
 }
 

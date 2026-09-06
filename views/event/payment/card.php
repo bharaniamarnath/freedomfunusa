@@ -5,8 +5,6 @@ date_default_timezone_set('America/Chicago');
 
 include_once(__DIR__ . "/../../../application/errorhandler.php");
 require_once(__DIR__ . '/../../../vendor/autoload.php');
-
-require_once(__DIR__ . '/../../vendor/autoload.php');
 require_once(__DIR__ . '../../configuration/defuse-crypto.phar');
 
 //Load ENV file

@@ -59,6 +59,10 @@ exit;
 
 require_once(__DIR__.'/../vendor/autoload.php');
 require_once(__DIR__.'/../controllers/oauth/oauth_db.php');
+require_once(__DIR__ . '/../configuration/defuse-crypto.phar');
+
+use Defuse\Crypto\Crypto;
+use Defuse\Crypto\Key;
 
 session_start();
 
@@ -76,16 +80,21 @@ exit('Only Google, Microsoft and Yahoo OAuth2 providers are currently supported 
 
 //These details are obtained by setting up an app in the Google developer console,
 //or whichever provider you're using.
-$clientId = '462215736285-7qkq0ir7inic9b1vd92qtaq6ebs62urc.apps.googleusercontent.com';
-$clientSecret = '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';
+
+//OAuth Keys
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../../configuration/');
+$dotenv->load();
+
+$oauth_cli_id = Key::loadFromAsciiSafeString($_ENV['OAUTH_CLI_ID']);
+$oauth_cli_sec = Key::loadFromAsciiSafeString($_ENV['OAUTH_CLI_SEC']);
 
 //If this automatic URL doesn't work, set it yourself manually to the URL of this script
 $redirectUri = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 //$redirectUri = 'http://localhost/PHPMailer/redirect';
 
 $params = [
-'clientId' => $clientId,
-'clientSecret' => $clientSecret,
+'clientId' => $oauth_cli_id,
+'clientSecret' => $oauth_cli_sec,
 'redirectUri' => $redirectUri,
 'accessType' => 'offline'
 ];

@@ -5,15 +5,15 @@ include_once(__DIR__ . "/../../../application/sessions.php");
 
 $sessions = new Sessions();
 
-$isParticipantSession = $sessions->isParticipantSession();
+$participantSession = $sessions->participantSession();
 $isCartAvailable = $sessions->isCartAvailable();
 
-if ($isParticipantSession && $isCartAvailable) {
+if ($participantSession && $isCartAvailable) {
 exit(header('Location: checkout'));
 }
 else {
-if ($_SESSION['bccc_event_participant_info']) {
-$eventPartcipantInfo = $_SESSION['bccc_event_participant_info'];
+if ($_SESSION['bccc_participant_info']) {
+$eventPartcipantInfo = $_SESSION['bccc_participant_info'];
 extract($eventPartcipantInfo);
 }
 else{

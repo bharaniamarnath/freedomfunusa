@@ -3,12 +3,12 @@ ob_start();
 
 include_once(__DIR__.'/../../../models/content_model.php');
 
-if(isset($_SESSION['bccc_event_participant']) && isset($_SESSION['bccc_event_game']) && isset($_SESSION['bccc_event_payment']) && isset($_SESSION['bccc_event_order'])){
+if(isset($_SESSION['bccc_participant']) && isset($_SESSION['bccc_event_game']) && isset($_SESSION['bccc_event_payment']) && isset($_SESSION['bccc_event_order'])){
 if($_SESSION['bccc_event_payment']['response'] == 1){
 $contentModel = new ContentModel();
 $rc = $contentModel->paymentStatusMessage($_SESSION['bccc_event_payment']['response']);
 $pc = $contentModel->paymentResponseMessage($_SESSION['bccc_event_payment']['response_code']);
-unset($_SESSION['bccc_event_participant']);
+unset($_SESSION['bccc_participant']);
 unset($_SESSION['bccc_event_game']);
 unset($_SESSION['bccc_event_payment']);
 unset($_SESSION['bccc_event_order']);

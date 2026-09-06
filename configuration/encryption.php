@@ -39,4 +39,4 @@ class Encryption
 //Define below variable with value to be encrypted
 //Or call this class in any external file and pass the text to be encrypted as parameter
 
-new Encryption("522ACQ-Y45qnt-8Mm633-SHPCR8");
+new Encryption("freedomfunusa");

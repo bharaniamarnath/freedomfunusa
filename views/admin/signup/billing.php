@@ -5,15 +5,15 @@ include_once(__DIR__."/../../../application/sessions.php");
 $contentModel = new ContentModel();
 $sessions = new Sessions();
 $eventParticipantFirstName = $eventParticipantLastName = $eventParticipantEmail = $eventParticipantPhoneCode = $eventParticipantPhoneCountry = $eventParticipantPhoneNumber = $eventParticipantZip = '';
-$isParticipantSession = $sessions->isParticipantSession();
-if($isParticipantSession){
-$eventParticipantFirstName = $_SESSION['bccc_event_participant']['eventParticipantFirstName'];
-$eventParticipantLastName = $_SESSION['bccc_event_participant']['eventParticipantLastName'];
-$eventParticipantEmail = $_SESSION['bccc_event_participant']['eventParticipantEmail'];
-$eventParticipantPhoneCode = $_SESSION['bccc_event_participant']['eventParticipantPhoneCode'];
-$eventParticipantPhoneCountry = $_SESSION['bccc_event_participant']['eventParticipantPhoneCountry'];
-$eventParticipantPhoneNumber = $_SESSION['bccc_event_participant']['eventParticipantPhoneNumber'];
-$eventParticipantZip = $_SESSION['bccc_event_participant']['eventParticipantZip'];
+$participantSession = $sessions->participantSession();
+if($participantSession){
+$eventParticipantFirstName = $_SESSION['bccc_participant']['eventParticipantFirstName'];
+$eventParticipantLastName = $_SESSION['bccc_participant']['eventParticipantLastName'];
+$eventParticipantEmail = $_SESSION['bccc_participant']['eventParticipantEmail'];
+$eventParticipantPhoneCode = $_SESSION['bccc_participant']['eventParticipantPhoneCode'];
+$eventParticipantPhoneCountry = $_SESSION['bccc_participant']['eventParticipantPhoneCountry'];
+$eventParticipantPhoneNumber = $_SESSION['bccc_participant']['eventParticipantPhoneNumber'];
+$eventParticipantZip = $_SESSION['bccc_participant']['eventParticipantZip'];
 }
 ?>
 

@@ -98,7 +98,9 @@ get('/event/wristband/view/$event_game_id', 'views/event/detail/wristband.php');
 get('/event/cart', 'views/event/cart.php');
 
 //Event - Participant
-get('/event/participant', 'views/event/participant/login.php');
+get('/event/participant', 'views/event/participant/account.php');
+get('/event/participant/dashboard', 'views/event/participant/dashboard.php');
+get('/event/participant/logout', 'views/event/participant/logout.php');
 
 //Fund - Checkout
 get('/event/checkout', 'views/event/checkout.php');

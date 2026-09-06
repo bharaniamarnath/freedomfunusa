@@ -16,7 +16,7 @@ isset($_SESSION['bccc_event_payment']) && !empty($_SESSION['bccc_event_payment']
 isset($_SESSION['bccc_event_order']) && !empty($_SESSION['bccc_event_order']) && 
 isset($_SESSION['bccc_event_billing']) && !empty($_SESSION['bccc_event_billing']) && 
 isset($_SESSION['bccc_event_game']) && !empty($_SESSION['bccc_event_game']) && 
-isset($_SESSION['bccc_event_participant']) && !empty($_SESSION['bccc_event_participant'])
+isset($_SESSION['bccc_participant']) && !empty($_SESSION['bccc_participant'])
 ){
 if($_SESSION['bccc_event_payment']['response'] == '1'){
 $this->processSuccess();
@@ -63,20 +63,20 @@ $_SESSION['bccc_event_order']['eventOrderParticipantIP']
 );
 
 $registerEventParticipant = $eventModel->registerEventParticipant(
-$_SESSION['bccc_event_participant']['eventParticipantID'],
+$_SESSION['bccc_participant']['eventParticipantID'],
 $_SESSION['bccc_event_order']['eventOrderID'],
-$_SESSION['bccc_event_participant']['eventParticipantFirstName'],
-$_SESSION['bccc_event_participant']['eventParticipantLastName'], 
-$_SESSION['bccc_event_participant']['eventParticipantEmail'], 
-$_SESSION['bccc_event_participant']['eventParticipantPhoneCode'] . $_SESSION['bccc_event_participant']['eventParticipantPhoneNumber'], 
-$_SESSION['bccc_event_participant']['eventParticipantZip']
+$_SESSION['bccc_participant']['eventParticipantFirstName'],
+$_SESSION['bccc_participant']['eventParticipantLastName'], 
+$_SESSION['bccc_participant']['eventParticipantEmail'], 
+$_SESSION['bccc_participant']['eventParticipantPhoneCode'] . $_SESSION['bccc_participant']['eventParticipantPhoneNumber'], 
+$_SESSION['bccc_participant']['eventParticipantZip']
 );
 
 $sendMailInfo = array(
-"eventParticipantID" => $_SESSION['bccc_event_participant']['eventParticipantID'], 
+"eventParticipantID" => $_SESSION['bccc_participant']['eventParticipantID'], 
 "eventOrderID" => $_SESSION['bccc_event_order']['eventOrderID'], 
-"eventParticipantName" => $_SESSION['bccc_event_participant']['eventParticipantFirstName'] . ' ' . $_SESSION['bccc_event_participant']['eventParticipantLastName'], 
-"eventParticipantEmail" => $_SESSION['bccc_event_participant']['eventParticipantEmail'],
+"eventParticipantName" => $_SESSION['bccc_participant']['eventParticipantFirstName'] . ' ' . $_SESSION['bccc_participant']['eventParticipantLastName'], 
+"eventParticipantEmail" => $_SESSION['bccc_participant']['eventParticipantEmail'],
 );
 
 $sendMailOrderInfo = array(
@@ -140,8 +140,8 @@ $this->sendUserMailNotification($sendMailInfo, $sendMailEventsInfo, $sendMailOrd
 $this->sendAdminMailNotification($sendMailInfo, $sendMailEventsInfo, $sendMailOrderInfo);
 
 $this->sendUserTextNotification(
-$_SESSION['bccc_event_participant']['eventParticipantPhoneCode'] . $_SESSION['bccc_event_participant']['eventParticipantPhoneNumber'], 
-$_SESSION['bccc_event_participant']['eventParticipantFirstName'] . ' ' . $_SESSION['bccc_event_participant']['eventParticipantLastName'], 
+$_SESSION['bccc_participant']['eventParticipantPhoneCode'] . $_SESSION['bccc_participant']['eventParticipantPhoneNumber'], 
+$_SESSION['bccc_participant']['eventParticipantFirstName'] . ' ' . $_SESSION['bccc_participant']['eventParticipantLastName'], 
 $_SESSION['bccc_event_order']['eventOrderID']
 );
 

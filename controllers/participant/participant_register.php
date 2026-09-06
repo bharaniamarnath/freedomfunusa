@@ -54,8 +54,8 @@ $eventParticipantZip
 
 if($registerEventParticipant){
 
-if(isset($_SESSION['bccc_event_participant_info'])){
-$_SESSION['bccc_event_participant'] = array();
+if(isset($_SESSION['bccc_participant_info'])){
+$_SESSION['bccc_participant'] = array();
 }
 
 $res = array("err" => 0, "msg" => "Participant account registered", "redir"=> "event/participant");
@@ -76,11 +76,11 @@ $event_participant_info = array(
 "eventParticipantZip" => $eventParticipantZip
 );
 
-if(!isset($_SESSION['bccc_event_participant'])){
-$_SESSION['bccc_event_participant'] = array();
+if(!isset($_SESSION['bccc_participant'])){
+$_SESSION['bccc_participant'] = array();
 }
 
-$_SESSION['bccc_event_participant_info'] = $event_participant_info;
+$_SESSION['bccc_participant_info'] = $event_participant_info;
 
 $res = array("err" => 1, "msg" => "Unable to register participant");
 echo json_encode($res);

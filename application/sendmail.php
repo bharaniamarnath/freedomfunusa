@@ -9,6 +9,11 @@ use League\OAuth2\Client\Provider\Google;
 require_once(__DIR__ . '/../vendor/autoload.php');
 require_once(__DIR__ . '/../controllers/oauth/oauth_db.php');
 
+require_once(__DIR__ . '/../configuration/defuse-crypto.phar');
+
+use Defuse\Crypto\Crypto;
+use Defuse\Crypto\Key;
+
 class sendMail
 {
     public function __construct($sendEmail, $sendName, $sendSubject, $sendBody, $sendWaiver = 0)
@@ -28,9 +33,14 @@ class sendMail
         $mail->SMTPAuth = true;
         $mail->AuthType = 'XOAUTH2';
 
-        $email = 'mail.tisocial@gmail.com'; // the email used to register google app
-        $clientId = '462215736285-7qkq0ir7inic9b1vd92qtaq6ebs62urc.apps.googleusercontent.com';
-        $clientSecret = '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';
+        //OAuth Keys
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../../configuration/');
+        $dotenv->load();
+        
+        $oauth_cli_id = Key::loadFromAsciiSafeString($_ENV['OAUTH_CLI_ID']);
+        $oauth_cli_sec = Key::loadFromAsciiSafeString($_ENV['OAUTH_CLI_SEC']);
+
+        $oauth_email = 'mail.tisocial@gmail.com';
 
         $db = new DB();
         $refreshToken = $db->get_refresh_token();
@@ -38,8 +48,8 @@ class sendMail
         //Create a new OAuth2 provider instance
         $provider = new Google(
             [
-                'clientId' => $clientId,
-                'clientSecret' => $clientSecret,
+                'clientId' => $oauth_cli_id,
+                'clientSecret' => $oauth_cli_sec,
             ]
         );
 
@@ -48,10 +58,10 @@ class sendMail
             new OAuth(
                 [
                     'provider' => $provider,
-                    'clientId' => $clientId,
-                    'clientSecret' => $clientSecret,
+                    'clientId' => $oauth_cli_id,
+                    'clientSecret' => $oauth_cli_sec,
                     'refreshToken' => $refreshToken,
-                    'userName' => $email,
+                    'userName' => $oauth_email,
                 ]
             )
         );

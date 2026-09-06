@@ -95,8 +95,8 @@ endforeach;
 <h5 class="text-red fw-bold my-3">Participant Details</h5>
 
 <?php
-if(isset($_SESSION['bccc_event_participant']) && !empty($_SESSION['bccc_event_participant']) && is_array($_SESSION['bccc_event_participant'])):
-    $eventParticipantInfo = $participantModel->getEventParticipantByEmailID($_SESSION['bccc_event_participant']['participantLoginEmail']);
+if(isset($_SESSION['bccc_participant']) && !empty($_SESSION['bccc_participant']) && is_array($_SESSION['bccc_participant'])):
+    $eventParticipantInfo = $participantModel->getEventParticipantByEmailID($_SESSION['bccc_participant']['participantLoginEmail']);
     if(!empty($eventParticipantInfo) && is_array($eventParticipantInfo)):
 ?>
 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 mb-3">

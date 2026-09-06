@@ -10,7 +10,7 @@ require_once(__DIR__ . '../../configuration/defuse-crypto.phar');
 use Defuse\Crypto\Crypto;
 use Defuse\Crypto\Key;
 
-if(isset($_SESSION['bccc_event_order']) && !empty($_SESSION['bccc_event_order']) && isset($_SESSION['bccc_event_participant']) && !empty($_SESSION['bccc_event_participant'])){
+if(isset($_SESSION['bccc_event_order']) && !empty($_SESSION['bccc_event_order']) && isset($_SESSION['bccc_participant']) && !empty($_SESSION['bccc_participant'])){
 
 //Payment and Order Information
 $amount = trim(stripslashes(htmlspecialchars($_SESSION['bccc_event_order']['eventOrderTotal'])));
@@ -22,12 +22,12 @@ $shipping = number_format($shipping, 2, '.', '');
 $order_id = trim(stripslashes(htmlspecialchars($_SESSION['bccc_event_order']['eventOrderID'])));
 $order_desc = trim(stripslashes(htmlspecialchars($_SESSION['bccc_event_order']['eventOrderDesc'])));
 $ip_addr = trim(stripslashes($_SESSION['bccc_event_order']['eventOrderParticipantIP']));
-$first_name = trim(stripslashes(htmlspecialchars($_SESSION['bccc_event_participant']['ParticipantLoginFirstName'])));
-$last_name = trim(stripslashes(htmlspecialchars($_SESSION['bccc_event_participant']['ParticipantLoginLastName'])));
-$email = trim(stripslashes(htmlspecialchars($_SESSION['bccc_event_participant']['participantLoginEmail'])));
+$first_name = trim(stripslashes(htmlspecialchars($_SESSION['bccc_participant']['ParticipantLoginFirstName'])));
+$last_name = trim(stripslashes(htmlspecialchars($_SESSION['bccc_participant']['ParticipantLoginLastName'])));
+$email = trim(stripslashes(htmlspecialchars($_SESSION['bccc_participant']['participantLoginEmail'])));
 $company = $address1 = $address2 = $city = $state = $country = $fax = $website = '';
-$phone = trim(stripslashes(htmlspecialchars($_SESSION['bccc_event_participant']['ParticipantLoginPhone'])));
-$zip = trim(stripslashes(htmlspecialchars($_SESSION['bccc_event_participant']['ParticipantLoginZipCode'])));
+$phone = trim(stripslashes(htmlspecialchars($_SESSION['bccc_participant']['ParticipantLoginPhone'])));
+$zip = trim(stripslashes(htmlspecialchars($_SESSION['bccc_participant']['ParticipantLoginZipCode'])));
 
 //Set Payment Token Type String
 $payment_token_type_string = "";

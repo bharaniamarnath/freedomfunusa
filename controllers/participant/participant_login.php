@@ -3,6 +3,7 @@ ob_start();
 
 include_once(__DIR__ . '/../../models/participant_model.php');
 include_once(__DIR__ . '/../../models/validation_model.php');
+include_once(__DIR__ . '/../../application/sessions.php');
 
 if(isset($_POST['participantLoginSubmit'])){
 
@@ -27,7 +28,7 @@ $participantLoginStatus = 1;
 $participantModel->setParticipantLoginStatus($participantLoginEmail, $participantLoginStatus);
 
 $participantLoginEmailInfo = $participantModel->getEventParticipantByEmailID($participantLoginEmail);
-$bccc_event_participant = array(
+$bccc_participant = array(
 'participantLoginEmail' => $participantLoginEmail,
 'ParticipantLoginStatus' => $participantLoginStatus,
 'ParticipantLoginFirstName' =>$participantLoginEmailInfo['ffep_first_name'],
@@ -35,9 +36,18 @@ $bccc_event_participant = array(
 'ParticipantLoginPhone' =>$participantLoginEmailInfo['ffep_phone'],
 'ParticipantLoginZipCode' =>$participantLoginEmailInfo['ffep_zip'],
 );
-$_SESSION['bccc_event_participant'] = $bccc_event_participant;
-$res = array("err" => 0, "msg" => "Participant login success", "redir"=> "event/checkout");
-echo json_encode($res);
+$_SESSION['bccc_participant'] = $bccc_participant;
+
+$sessions = new Sessions();
+$cartSession = $sessions->isCartAvailable();
+if ($cartSession) {
+    $res = array("err" => 0, "msg" => "Participant login success", "redir"=> "event/checkout");
+    echo json_encode($res);
+}
+else{
+    $res = array("err" => 0, "msg" => "Participant login success", "redir"=> "event/participant/dashboard");
+    echo json_encode($res);
+}
 }
 else{
 $res = array("err" => 1, "msg" => "Participant login failed");
