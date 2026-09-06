@@ -1,7 +1,7 @@
 <?php
 ob_start();
 include_once(__DIR__."/../../../application/sessions.php");
-include_once(__DIR__."/../../../models/admin_model.php");
+include_once(__DIR__."/../../../models/participant_model.php");
 
 $participantLogOutStatus = -1;
 $sessions = new Sessions();
@@ -10,7 +10,7 @@ if($participantSession){
 $participantLoginEmail = $_SESSION['bccc_participant']['participantLoginEmail'];
 if(isset($participantLoginEmail) && !empty($participantLoginEmail) && $participantLoginEmail !== ''){
 $participantLoginStatus = 0;
-$participantModel = new AdminModel();
+$participantModel = new ParticipantModel();
 $participantModel->setParticipantLoginStatus($participantLoginEmail, $participantLoginStatus);
 unset($_SESSION['bccc_participant']);
 $participantLogOutStatus = 1;
@@ -51,7 +51,7 @@ include_once(__DIR__.'/../../templates/header.php');
 <div class="alert alert-warning"><i class="fa fa-exclamation-circle"></i>&nbsp;Unknown error occurred.</div>
 <?php endif; ?>
 <div class="d-grid gap-2 d-sm-block py-3">
-<a href="event/participant" type="button" class="btn btn-red btn-lg">Back to Login</a>
+<a href="event/participant" type="button" class="btn btn-red">Back to Login</a>
 </div>
 </div>
 </div>
