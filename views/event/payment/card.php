@@ -5,7 +5,7 @@ date_default_timezone_set('America/Chicago');
 
 include_once(__DIR__ . "/../../../application/errorhandler.php");
 require_once(__DIR__ . '/../../../vendor/autoload.php');
-require_once(__DIR__ . '../../configuration/defuse-crypto.phar');
+require_once(__DIR__ . '/../../../configuration/defuse-crypto.phar');
 
 //Load ENV file
 
@@ -33,7 +33,7 @@ $ip_addr = trim(htmlspecialchars(stripslashes($_SESSION['bccc_event_order']['eve
 //Payment Gateway Token Key
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../../configuration/');
 $dotenv->load();
-$pg_token_key = Key::loadFromAsciiSafeString($_ENV['PG_TOK_KEY']);
+$db_enc_key = Key::loadFromAsciiSafeString($_ENV['DB_ENC_KEY']);
 
 } else {
 exit(header('Location: event/checkout'));
@@ -50,14 +50,14 @@ exit(header('Location: event/checkout'));
 <meta name="description" content="<?php echo $aboutJSONEnc['EventSiteDescription']; ?>">
 <base href="<?php echo $_ENV['BASE_URL']; ?>" target="_self">
 <title><?php echo $aboutJSONEnc['EventSiteTitle']; ?></title>
-<link rel="icon" type="image/x-icon" sizes="16x16" href="assets/icons/favicon.ico" />
+<link rel="icon" type="image/x-icon" sizes="16x16" href="public/assets/images/icons/favicon.ico" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
 <link href="public/css/main.css" rel="stylesheet">
 
 <script
 src="https://accs.transactiongateway.com/token/Collect.js"
-data-tokenization-key=<?php $pg_token_key; ?>
+data-tokenization-key=<?php echo json_encode(Crypto::decrypt($_ENV['PG_TOK_KEY'], $db_enc_key)); ?>
 data-payment-selector="#eventPayButton"
 data-variant="inline"
 data-style-sniffer="false"

@@ -10,13 +10,14 @@ include_once(__DIR__ . '/../models/game_model.php');
 
 <div class="container page">
 
-    <div class="row flex-md-row-reverse justify-content-center align-items-center bg-red rounded-3 mx-auto mb-4 px-4 py-5">
 
-        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-4">
-            <img src="public/assets/images/features/ff_hero_banner.png" class="img-fluid border border-5 rounded-3" alt="<?php echo $aboutJSONEnc['EventHeading']; ?>" loading="lazy">
-        </div>
-        
-        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+<div id="snowfall" class="row flex-md-row-reverse justify-content-center align-items-center bg-red rounded-3 mx-auto mb-4 px-4 py-5">
+  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4 snowfall-content">
+    <img src="public/assets/images/features/ff_hero_banner.png" class="img-fluid border border-5 rounded-3" alt="<?php echo $aboutJSONEnc['EventHeading']; ?>" loading="lazy">
+  </div>
+
+  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 snowfall-content">
+
             <h1 class="display-5 text-white text-uppercase fw-bold lh-1 mb-4">Skip The Lines and Save!</h1>
             <p class="lead text-white mb-4">Pre purchase your Old Town Christmas Festival tokens &amp; wristbands now!</p>
             <div class="d-grid gap-2 d-lg-flex justify-content-md-start">

@@ -36,7 +36,7 @@ $aboutJSONEnc = json_decode($aboutJSONFile, true);
     <meta name="description" content="<?php echo $aboutJSONEnc['EventSiteDescription']; ?>">
     <base href="<?php echo $_ENV['BASE_URL']; ?>" target="_self">
     <title><?php echo $aboutJSONEnc['EventSiteTitle']; ?></title>
-    <link rel="icon" type="image/x-icon" sizes="16x16" href="assets/icons/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="public/assets/images/icons/favicon.ico" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous">

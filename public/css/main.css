@@ -338,6 +338,29 @@ label.required-field::after {
     background-size: cover;
 }
 
+/* Hero Animation */
+
+#snowfall {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+/* Snowflakes appear above the background and content */
+#snowfall .snow-particle {
+  background: transparent !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Keep content below the snowflakes */
+#snowfall .snowfall-content {
+  position: relative;
+  z-index: 2;
+}
+
 .img-badge {
     width: 256px;
 }

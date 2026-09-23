@@ -1906,6 +1906,76 @@ $(document).ready(function () {
     });
 
 
+    //Hero Background Animation
+
+    $(function () {
+    const $container = $("#snowfall");
+    const snowflakeCount = 35;
+
+    const snowflakeTypes = ["❄", "❅", "❆", "✳"];
+
+    function createSnowflake() {
+        const containerWidth = $container.innerWidth();
+        const containerHeight = $container.innerHeight();
+
+        const symbol =
+        snowflakeTypes[
+            Math.floor(Math.random() * snowflakeTypes.length)
+        ];
+
+        const $flake = $("<span>", {
+        class: "snow-particle",
+        text: symbol
+        });
+
+        const startLeft = Math.random() * containerWidth;
+        const endLeft = startLeft + (Math.random() * 80 - 40);
+        const size = 10 + Math.random() * 18;
+        const duration = 5000 + Math.random() * 5000;
+
+        $flake.css({
+        position: "absolute",
+        zIndex: 1,
+        left: startLeft + "px",
+        top: "-30px",
+        fontSize: size + "px",
+        color: "#fff",       // Change the flake color here
+        opacity: 0.5 + Math.random() * 0.5,
+        lineHeight: "1",
+        background: "transparent",
+        textShadow: "none",
+        boxShadow: "none",
+        filter: "none",
+        WebkitFilter: "none",
+        pointerEvents: "none",
+        userSelect: "none"
+        });
+
+
+        $container.append($flake);
+
+        $flake.animate(
+        {
+            top: containerHeight + 30 + "px",
+            left: endLeft + "px"
+        },
+        duration,
+        "linear",
+        function () {
+            $(this).remove();
+            createSnowflake();
+        }
+        );
+    }
+
+    for (let i = 0; i < snowflakeCount; i++) {
+        setTimeout(function () {
+        createSnowflake();
+        }, i * 250);
+    }
+    });
+
+
     /*--------------------------------------------------------------------------------------------------------------------*/
     /*--------------------------------------------------------------------------------------------------------------------*/
 

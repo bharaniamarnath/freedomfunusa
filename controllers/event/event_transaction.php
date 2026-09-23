@@ -48,7 +48,8 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/');
 $dotenv->load();
 
 $gw = new gwapi();
-$pg_sec_key = Key::loadFromAsciiSafeString($_ENV['PG_SEC_KEY']);
+$db_enc_key = Key::loadFromAsciiSafeString($_ENV['DB_ENC_KEY']);
+$pg_sec_key = Crypto::decrypt($_ENV['PG_SEC_KEY'], $db_enc_key);
 $gw->setLogin($pg_sec_key);
 $gw->setBilling($first_name, $last_name, $company, $address1, $address2, $city, $state, $zip, $country, $phone, $fax, $email, $website);
 $gw->setShipping($first_name, $last_name, $company, $address1, $address2, $city, $state, $zip, $country, $email);
